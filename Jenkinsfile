@@ -10,7 +10,7 @@ pipeline {
             }
         }
         stage ('Create local app via docker'){
-            agent {label:'DockerContinousIntegration'}
+            agent {label 'DockerContinousIntegration'}
           steps {
               dir ('/home/vagrant/AzureApp') {
                 sh 'docker-compose down '
