@@ -5,8 +5,11 @@ pipeline {
     }
    stages{
         stage ('Pull Modifications') {
+            agent {label 'DockerContinousIntegration'}
           steps {
-           echo 'pull'
+                dir ('/home/vagrant/AzureApp') {
+                   sh  'git pull'
+                }
             }
         }
         stage ('Create local app via docker'){
