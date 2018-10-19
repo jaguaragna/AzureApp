@@ -16,9 +16,7 @@ pipeline {
             agent {label 'DockerContinousIntegration'}
           steps {
               dir ('/home/vagrant/AzureApp') {
-                sh 'docker-compose down '
-                sh 'docker-compose build '
-                sh 'docker-compose up -d '
+                sh 'docker-compose down && docker-compose build && docker-compose up -d '
               }
             }
         }
