@@ -10,8 +10,13 @@ pipeline {
             }
         }
         stage ('Create local app via docker'){
+            agent {label:'DockerContinousIntegration'}
           steps {
-            echo 'stop build up '
+              dir ('/home/vagrant/AzureApp') {
+                sh 'docker-compose down '
+                sh 'docker-compose build '
+                sh 'docker-compose up -d '
+              }
             }
         }
         stage ('Test app'){
