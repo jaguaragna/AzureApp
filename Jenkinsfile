@@ -17,7 +17,7 @@ pipeline {
         stage ('Test app'){
           steps {
 
-                sh 'curl -I http://192.168.99.104:8080'
+                sh 'curl http://192.168.99.104:8081'
             }
         }
         stage ('Deploy App to Azure'){
